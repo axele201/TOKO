@@ -1,0 +1,663 @@
+<!-- /**
+ * 🕯️ PERINGATAN: KODE INI DILINDUNGI OLEH NASEHAT DAN KUTUKAN 🕯️
+ *
+ * Jika kamu menyalahgunakan kode ini — mencuri, mengeksploitasi, atau memanfaatkannya tanpa izin —
+ * maka jangan terkejut jika hidupmu mulai dihantui oleh kehilangan demi kehilangan.
+ *
+ * Kamu akan disakiti oleh orang yang paling kamu percayai.
+ * Dikhianati di saat kamu paling membutuhkan.
+ * Dicampakkan ketika kamu merasa paling aman.
+ *
+ * Karena bukan saya yang membalasmu — tapi semesta dan waktu yang akan memutar semuanya kembali.
+ * Ini bukan ancaman. Ini peringatan dari mereka yang pernah dikhianati dan diam.
+ *
+ * Gunakan dengan niat baik, atau bersiaplah menanggung akibat yang tak bisa kamu hindari.
+ */ -->
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOKO DIMAS</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://axele201.github.io/TOKO/style.css" />
+
+    <link rel="shortcut icon" href="https://axele201.github.io/TOKO/img/logo.jpeg" type="image/x-icon">
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="https://axele201.github.io/TOKO/img/logo.jpeg" alt="Logo" style="width: 40px; height: auto; border-radius: 50%;" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link"  onclick="scrollToProduct('GALON')"><i class="fas fa-tint"></i> GALON</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="scrollToProduct('BOTOL')"><i class="fa-solid fa-bottle-water"></i> BOTOL</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="scrollToProduct('GELAS')"><i class="fa-solid fa-glass-water"></i> GELAS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="scrollToProduct('GAS')"><i class="fas fa-fire"></i> GAS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="scrollToProduct('BAYAR')"><i class="fa-solid fa-cart-shopping"></i> Checkout</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <a href="#toserba" class="btn btn-primary">Toserba</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Jumbotron / Carousel -->
+    <div class="container my-4">
+      <div id="jumbotronCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="jumbotron-card">
+              <img src="https://axele201.github.io/TOKO/img/jumbotron/GREETING.jpeg" class="jumbotron-img" alt="Jumbotron 1">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="jumbotron-card">
+              <img src="https://axele201.github.io/TOKO/img/jumbotron/BANER.png" class="jumbotron-img" alt="Jumbotron 2">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="jumbotron-card">
+              <img src="https://axele201.github.io/TOKO/img/jumbotron/OPERATIONAL.png" class="jumbotron-img" alt="Jumbotron 3">
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#jumbotronCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+          <span class="sr-only">Sebelumnya</span>
+        </a>
+        <a class="carousel-control-next" href="#jumbotronCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+          <span class="sr-only">Selanjutnya</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Daftar Product -->
+     <div class="container my-5">
+      <button class="btn btn-primary mb-3" type="button" data-toggle="collapse" data-target="#produkDropdown" aria-expanded="false" aria-controls="produkDropdown">
+        Daftar Produk
+      </button>
+
+      <div class="collapse" id="produkDropdown">
+        <div class="row">
+          <!-- GALON -->
+          <div class="col-md-4">
+            <h5 class="text-center text-primary">Galon</h5>
+            <ul class="list-group">
+              <li class="list-group-item" onclick="scrollToProduct('AQUA_GALON')">Aqua Galon</li>
+              <li class="list-group-item" onclick="scrollToProduct('VIT_GALON')">Vit Galon</li>
+              <li class="list-group-item" onclick="scrollToProduct('ISI_ULANG')">Isi Ulang</li>
+              <li class="list-group-item" onclick="scrollToProduct('LE_MINERAL')">Le Mineral</li>
+            </ul>
+          </div>
+
+          <!-- KARDUS BOTOL -->
+          <div class="col-md-4">
+            <h5 class="text-center text-success">Kardus Botol</h5>
+            <ul class="list-group">
+              <li class="list-group-item" onclick="scrollToProduct('AQUA_1L')">Aqua 1L</li>
+              <li class="list-group-item" onclick="scrollToProduct('AQUA_600ML')">Aqua 600ml</li>
+              <li class="list-group-item" onclick="scrollToProduct('TEH_PUCUK')">Teh Pucuk</li>
+            </ul>
+          </div>
+
+          <!-- KARDUS GELAS -->
+          <div class="col-md-4">
+            <h5 class="text-center text-danger">Kardus Gelas</h5>
+            <ul class="list-group">
+              <li class="list-group-item" onclick="scrollToProduct('AQUA_GELAS')">Aqua Gelas</li>
+              <li class="list-group-item" onclick="scrollToProduct('VIT_GELAS')">Vit Gelas</li>
+              <li class="list-group-item" onclick="scrollToProduct('ALE_ALE_JERUK')">Ale-ale Jeruk</li>
+              <li class="list-group-item" onclick="scrollToProduct('ALE_ALE_ANGGUR')">Ale-ale Anggur</li>
+              <li class="list-group-item" onclick="scrollToProduct('ALE_ALE_STROBERI')">Ale-ale Stroberi</li>
+              <li class="list-group-item" onclick="scrollToProduct('ALE_ALE_MANGGA')">Ale-ale Mangga</li>
+              <li class="list-group-item" onclick="scrollToProduct('TEH_RIO')">Teh Rio</li>
+              <li class="list-group-item" onclick="scrollToProduct('ULTRAMILK_125')">Ultramilk 125ml</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="container mb-5">
+      <h2 class="mb-4" id="GALON"><i class="fas fa-box-open"></i> Air</h2>
+      <div class="row" id="productList">
+        <!-- Produk -->
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="AQUA_GALON">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/aqua_galon.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">AQUA</h5>
+              <p class="product-price mb-3">Rp20.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('AQUA', 20000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="VIT_GALON">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/vit_galon.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">VIT</h5>
+              <p class="product-price mb-3">Rp17.500</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('VIT', 17500)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="ISI_ULANG">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/isi_ulang.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">ISI ULANG</h5>
+              <p class="product-price mb-3">Rp4.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('ISI_ULANG', 4000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="LE_MINERAL">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/lemineral_galon.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">LE MINERAL</h5>
+              <p class="product-price mb-3">Rp20.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('LE_MINERAL', 20000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- DUS BOTOL -->
+      <h2 class="mb-4" id="BOTOL"><i class="fas fa-box-open"></i> KARTON BOTOL</h2>
+      <div class="row" id="productList">
+        <!-- Produk -->
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="AQUA_1L">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/aqua_1liter.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">AQUA 1.5L</h5>
+              <small>12 x 1.500ml</small>
+              <p class="product-price mb-3">Rp55.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('AQUA_1L', 55000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="AQUA_600ML">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/aqua_600ml.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">AQUA 600ml</h5>
+              <small>24 x 600ml</small>
+              <p class="product-price mb-3">Rp49.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('AQUA_600ML', 49000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="TEH_PUCUK">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/teh_pucuk.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">TEH PUCUK</h5>
+              <small>24 x 350ml</small>
+              <p class="product-price mb-3">Rp55.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('TEH_PUCUK', 55000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- DUS CUP -->
+      <h2 class="mb-4" id="GELAS"><i class="fas fa-box-open"></i> KARTON GELAS</h2>
+      <div class="row" id="productList">
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="AQUA_GELAS">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/Aqua_gelas.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">AQUA GELAS</h5>
+              <small>48 x 220ml</small>
+              <p class="product-price mb-3">Rp40.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('AQUA_GELAS', 40000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="VIT_GELAS">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/vit_gelas.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">VIT GELAS</h5>
+              <small>48 x 220ml</small>
+              <p class="product-price mb-3">Rp24.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('VIT_GELAS', 24000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="ALAINA">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/ALAINA.png"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">ALAINA</h5>
+              <small>48 x 220ml</small>
+              <p class="product-price mb-3">Rp18.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('ALAINA', 18000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="ALE_ALE_JERUK">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/ALE-ALE.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">ALE ALE JERUK</h5>
+              <small>24 x 180ml</small>
+              <p class="product-price mb-3">Rp23.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('ALE_ALE_JERUK', 23000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="ALE_ALE_ANGGUR">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/ALE-ALE.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">ALE ALE ANGGUR</h5>
+              <small>24 x 180ml</small>
+              <p class="product-price mb-3">Rp23.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('ALE_ALE_ANGGUR', 23000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="ALE_ALE_STROBERI">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/ALE-ALE.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">ALE ALE STROBERI</h5>
+              <small>24 x 180ml</small>
+              <p class="product-price mb-3">Rp23.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('ALE_ALE_STROBERI', 23000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="ALE_ALE_MANGGA">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/ALE-ALE.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">ALE ALE MANGGA</h5>
+              <small>24 x 180ml</small>
+              <p class="product-price mb-3">Rp23.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('ALE_ALE_MANGGA', 23000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="TEH_RIO">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/Teh_rio.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">TEH RIO</h5>
+              <small>24 x 180ml</small>
+              <p class="product-price mb-3">Rp23.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('TEH_RIO', 23000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="ULTRAMILK_125">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/air/Ultra_125.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">ULTRAMILK_125 coklat</h5>
+              <small>40 x 125ml</small>
+              <p class="product-price mb-3">Rp130.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('ULTRAMILK_125', 23000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- GAS -->
+      <h2 class="mb-4" id="GAS"><i class="fas fa-box-open"></i> GAS</h2>
+      <div class="row" id="productList">
+        <!-- Produk -->
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="GAS_3KG">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/gas/gas3kg.jpg"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">GAS_3KG</h5>
+              <small>GAS MELON 3kg netto 5kg bruto</small>
+              <p class="product-price mb-3">Rp20.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('GAS_3KG', 20000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100" id="GAS_12KG">
+          <div class="card shadow-sm border-0 product-card h-100">
+            <img
+              src="https://axele201.github.io/TOKO/img/gas/gas_12kg.png"
+              class="card-img-top product-image"
+              alt="Aqua"
+            />
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="product-title text-dark">GAS_12KG </h5>
+              <small>GAS MERAH 12kg netto 15kg bruto</small>
+              <p class="product-price mb-3">Rp220.000</p>
+              <button
+                class="btn btn-outline-danger btn-sm mt-auto w-100"
+                onclick="window.addToCart('GAS_12KG', 220000)"
+              >
+                <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Keranjang -->
+    <div class="container mt-5" id="BAYAR">
+      <h2 class="mb-4">
+        <i class="fas fa-shopping-cart mr-2"></i> Keranjang
+      </h2>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="thead-dark text-center">
+            <tr>
+              <th class="text-left">Produk</th>
+              <th>Qty</th>
+              <th>Harga</th>
+              <th>Total</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="cartList"></tbody>
+        </table>
+      </div>
+      <div id="totalDisplay" class="mt-3 font-weight-bold h5 text-right"></div>
+      <div class="mt-4 text-right">
+        <button class="btn btn-primary" onclick="window.showCheckout()">
+          <i class="fas fa-credit-card"></i> Lanjut ke Pembayaran
+        </button>
+      </div>
+    </div>
+
+    <!-- Form Checkout -->
+    <div class="container mt-5" id="checkoutForm" style="display: none;">
+      <h4 class="mb-4"><i class="fas fa-file-invoice-dollar"></i> Form Pembelian</h4>
+      <form id="orderForm">
+        <div class="form-group">
+          <label>Nama Pembeli</label>
+          <input type="text" name="nama" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label>Nomor Telepon (WhatsApp)</label>
+          <input type="tel" name="telepon" class="form-control" required pattern="[0-9]+"
+            placeholder="Contoh: 6281234567890" />
+        </div>
+        <div class="form-group">
+          <label>Alamat</label>
+          <textarea id="alamat" name="alamat" class="form-control" required></textarea>
+          <button type="button" id="getLocationBtn" class="btn btn-sm btn-outline-primary mt-2">
+            📍 Pilih Lokasi Otomatis
+          </button>
+          <div id="map" style="height: 300px; margin-top: 10px; display: none; border: 1px solid #ccc;"></div>
+        </div>
+        <div class="form-group">
+          <label for="rtRw">RT/RW</label>
+          <input type="text" id="rtRw" name="rtRw" placeholder="RT/RW" required>
+        </div>
+        <div class="form-group">
+          <label>Metode Pembayaran</label>
+          <select name="pembayaran" class="form-control" onchange="toggleBukti(this.value)" required>
+            <option value="">Pilih</option>
+            <option value="Cash">Cash</option>
+            <option value="QRIS">QRIS</option>
+            <option value="Transfer">Transfer</option>
+          </select>
+        </div>
+
+        <!-- Elemen yang muncul ketika QRIS dipilih -->
+        <div id="qrisInfo" style="display: none; text-align: center;">
+          <label style="font-weight: bold;">Scan QRIS untuk Pembayaran:</label><br />
+          <img id="qrisImage" src="https://axele201.github.io/TOKO/img/QRIS.jpg" alt="QRIS Payment" style="width: 200px; max-width: 100%; height: auto; margin-top: 10px;" /><br />
+          <button onclick="downloadQRIS()" class="btn btn-sm btn-outline-primary mt-2">
+            ⬇️ Download QRIS
+          </button>
+        </div>
+
+
+
+        <!-- Elemen yang muncul ketika Transfer dipilih -->
+        <div id="transferInfo" style="display: none;">
+          <label>Transfer ke Rekening Berikut:</label>
+          <p>Bank: BCA</p>
+          <p>No. Rekening: 6801763577</p>
+          <p>Bank: CIMB NIAGA</p>
+          <p>No. Rekening: 708054798800</p>
+          <p>Bank: SEABANK</p>
+          <p>No. Rekening: 901248344908</p>
+          <p>Bank: DANA</p>
+          <p>No. Rekening: 085710840402</p>
+          <p>Bank: GOPAY</p>
+          <p>No. Rekening: 085731660813</p><br>
+          
+          <p>Atas Nama: DIMAS ISMAWAN ABDULLAH</p>
+        </div>
+
+        <div class="form-group" id="buktiPembayaran" style="display: none;">
+          <label>Bukti Pembayaran (Upload jika QRIS/Transfer)</label>
+          <input type="file" name="bukti" class="form-control-file" accept="image/*" />
+        </div>
+
+        <button type="submit" class="btn btn-success">
+          <i class="fas fa-paper-plane"></i> Kirim Pesanan
+        </button>
+      </form>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer text-center mt-5 py-4 bg-light">
+      <p>"Terima kasih atas kunjungan dan pembelian Anda."</p>
+      <p>
+        <a href="#">Tentang Kami</a> | <a href="#">Kontak</a> | <a href="#">Bantuan</a>
+      </p>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- AOS Animation -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init();</script>
+
+    <!-- Custom Script -->
+     <script src="https://axele201.github.io/TOKO/config.js"></script>
+    <script src="https://axele201.github.io/TOKO/script.js"></script>
+  </body>
+</html>

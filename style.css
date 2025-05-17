@@ -1,0 +1,219 @@
+/**
+ * 🕯️ PERINGATAN: KODE INI DILINDUNGI OLEH NASEHAT DAN KUTUKAN 🕯️
+ *
+ * Jika kamu menyalahgunakan kode ini — mencuri, mengeksploitasi, atau memanfaatkannya tanpa izin —
+ * maka jangan terkejut jika hidupmu mulai dihantui oleh kehilangan demi kehilangan.
+ *
+ * Kamu akan disakiti oleh orang yang paling kamu percayai.
+ * Dikhianati di saat kamu paling membutuhkan.
+ * Dicampakkan ketika kamu merasa paling aman.
+ *
+ * Karena bukan saya yang membalasmu — tapi semesta dan waktu yang akan memutar semuanya kembali.
+ * Ini bukan ancaman. Ini peringatan dari mereka yang pernah dikhianati dan diam.
+ *
+ * Gunakan dengan niat baik, atau bersiaplah menanggung akibat yang tak bisa kamu hindari.
+ */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  scroll-behavior: smooth;
+}
+
+/* navbar */
+.navbar {
+  background-color: #212529;
+}
+
+.navbar-brand {
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.navbar-brand i {
+  margin-right: 8px;
+}
+
+/* jumbotron */
+.jumbotron-card {
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jumbotron-img {
+  width: 100%;
+  height: auto;
+  max-height: 30vh;
+  /* kontrol tinggi maksimal agar tetap persegi panjang */
+  display: block;
+}
+
+/* list product */
+  /* Styling for the product categories */
+  h5 {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    color: #333;
+  }
+
+  .list-group {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .list-group-item {
+    background-color: #ffffff;
+    border: 2px solid #ddd; /* Menambahkan border yang lebih tegas */
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin: 8px 0;
+    font-size: 16px;
+    color: #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan shadow untuk memperjelas batas */
+  }
+
+  .list-group-item:hover {
+    background-color: #e0f7fa;
+    color: #00796b;
+    transform: translateX(5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Efek shadow lebih kuat saat hover */
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  .list-group-item:active {
+    background-color: #b2dfdb;
+    transform: scale(0.98);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow lebih halus saat aktif */
+  }
+
+  .list-group-item:focus {
+    outline: none;
+    background-color: #b2dfdb;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Shadow lebih kuat saat fokus */
+  }
+
+  /* Styling for each column */
+  .col-md-4 {
+    margin-bottom: 20px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 767px) {
+    .col-md-4 {
+      width: 100%;
+    }
+
+    .container {
+      padding: 10px;
+    }
+  }
+
+  
+/* product */
+.product-card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0.75rem;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  height: 200px;
+  object-fit: contain;
+  border-radius: 10px 10px 0 0;
+}
+
+.product-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.product-price {
+  font-weight: bold;
+  color: #d63031;
+  font-size: 1.2rem;
+}
+
+/* table card */
+.heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .cart-table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .cart-table th,
+  .cart-table td {
+    padding: 12px;
+    text-align: center;
+  }
+
+  .cart-table th.text-left,
+  .cart-table td.text-left {
+    text-align: left;
+  }
+
+  .cart-table thead {
+    background-color: #007bff; /* primary color */
+    color: white;
+  }
+
+  .cart-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .icon {
+    margin-right: 8px;
+  }
+
+/* checkout form */
+#checkoutForm {
+  display: none;
+}
+
+.footer {
+  background-color: #212529;
+  color: #ced4da;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
