@@ -195,11 +195,6 @@ body {
     margin-right: 8px;
   }
 
-/* checkout form */
-#checkoutForm {
-  display: none;
-}
-
 #transferInfo {
     display: none; /* Hide by default */
     padding: 20px;
@@ -246,6 +241,11 @@ body {
     background-color: #e9ecef;
     cursor: pointer;
   }
+/* checkout form */
+#checkoutForm {
+  display: none;
+}
+
 
 .footer {
   background-color: #212529;
