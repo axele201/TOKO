@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="https://axele201.github.io/TOKO/style.css" />
 
     <link rel="shortcut icon" href="https://axele201.github.io/TOKO/img/logo.jpeg" type="image/x-icon">
+
   </head>
 
   <body>
@@ -108,7 +109,7 @@
       </div>
     </div>
 
-     <!-- Daftar Product -->
+    <!-- Daftar Product -->
      <div class="container my-5">
       <button class="btn btn-primary mb-3" type="button" data-toggle="collapse" data-target="#produkDropdown" aria-expanded="false" aria-controls="produkDropdown">
         Daftar Produk
@@ -579,17 +580,14 @@
         </div>
         <div class="form-group">
           <label>Nomor Telepon (WhatsApp)</label>
-          <small>Bukti Pembayaran Akan dikirimkan melalui Whatsapp</small>
           <input 
-            type="tel" 
-            name="telepon" 
-            class="form-control" 
-            id="telepon"
-            required 
-            pattern="[0-9]{9,}" 
-            placeholder="Contoh: 6281234567890" 
-            title="Nomor telepon harus terdiri dari minimal 9 digit angka" 
-            />
+          type="tel" 
+          name="telepon" 
+          id="telepon"
+          class="form-control" 
+          required 
+          pattern="[0-9]+"
+          placeholder="Contoh: 6281234567890" />
         </div>
         <div class="form-group">
           <label>Alamat</label>
@@ -626,35 +624,36 @@
 
         <!-- Elemen yang muncul ketika Transfer dipilih -->
         <div id="transferInfo" style="display: none;">
-          <label>Transfer ke Rekening Berikut:</label><br>
-        
-          <div class="bank-info">
-            <p><span>Bank:</span> BCA</p>
-            <p><span>No. Rekening:</span> 6801763577</p>
-          </div>
-        
-          <div class="bank-info">
-            <p><span>Bank:</span> CIMB NIAGA</p>
-            <p><span>No. Rekening:</span> 708054798800</p>
-          </div>
-        
-          <div class="bank-info">
-            <p><span>Bank:</span> SEABANK</p>
-            <p><span>No. Rekening:</span> 901248344908</p>
-          </div>
-        
-          <div class="bank-info">
-            <p><span>Bank:</span> DANA</p>
-            <p><span>No. Rekening:</span> 085710840402</p>
-          </div>
-        
-          <div class="bank-info">
-            <p><span>Bank:</span> GOPAY</p>
-            <p><span>No. Rekening:</span> 085731660813</p>
-          </div><br>
-        
-          <p>Atas Nama: <span class="highlight">DIMAS ISMAWAN ABDULLAH</span></p>
-        </div>
+            <label>Transfer ke Rekening Berikut:</label><br>
+
+            <div class="bank-info">
+                <p><span>Bank:</span> BCA</p>
+                <p><span>No. Rekening:</span> 6801763577</p>
+            </div>
+
+            <div class="bank-info">
+                <p><span>Bank:</span> CIMB NIAGA</p>
+                <p><span>No. Rekening:</span> 708054798800</p>
+            </div>
+
+            <div class="bank-info">
+                <p><span>Bank:</span> SEABANK</p>
+                <p><span>No. Rekening:</span> 901248344908</p>
+            </div>
+
+            <div class="bank-info">
+                <p><span>Bank:</span> DANA</p>
+                <p><span>No. Rekening:</span> 085710840402</p>
+            </div>
+
+            <div class="bank-info">
+                <p><span>Bank:</span> GOPAY</p>
+                <p><span>No. Rekening:</span> 085731660813</p>
+            </div><br>
+
+            <p>Atas Nama: <span class="highlight">DIMAS ISMAWAN ABDULLAH</span></p>
+            </div>
+
 
         <div class="form-group" id="buktiPembayaran" style="display: none;">
           <label>Bukti Pembayaran (Upload jika QRIS/Transfer)</label>
