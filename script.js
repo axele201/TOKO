@@ -28,7 +28,20 @@ function addToCart(nama, harga) {
   } else {
     cart[nama].qty++;
   }
+
+  showPopupSuccess(`${nama} berhasil ditambahkan ke keranjang!`);
   renderCart();
+}
+function showPopupSuccess(message) {
+  const popup = document.getElementById("successPopup");
+  const messageEl = document.getElementById("successMessage");
+
+  messageEl.textContent = message;
+  popup.classList.remove("d-none");
+
+  setTimeout(() => {
+    popup.classList.add("d-none");
+  }, 2000); // tampil selama 2 detik
 }
 
 function decreaseQty(nama) {
@@ -67,10 +80,17 @@ function renderCart() {
 
     const tdAksi = document.createElement("td");
     const btnKurang = document.createElement("button");
-    btnKurang.className = "btn btn-sm btn-danger";
+    btnKurang.className = "btn btn-sm btn-danger mr-1";
     btnKurang.textContent = "-";
     btnKurang.onclick = () => decreaseQty(nama);
+
+    const btnTambah = document.createElement("button");
+    btnTambah.className = "btn btn-sm btn-success";
+    btnTambah.textContent = "+";
+    btnTambah.onclick = () => addToCart(nama, item.harga);
+
     tdAksi.appendChild(btnKurang);
+    tdAksi.appendChild(btnTambah);
 
     row.append(tdNama, tdQty, tdHarga, tdSubtotal, tdAksi);
     list.appendChild(row);
